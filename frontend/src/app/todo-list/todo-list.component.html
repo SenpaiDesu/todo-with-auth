@@ -1,10 +1,22 @@
-<mat-card class='form-block'>
-  <mat-card-title>TODO</mat-card-title>
+<mat-card class="add-item-block">
+  <mat-card-title>ADD TODO</mat-card-title>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput type='text' placeholder='Some text..' 
+        [(ngModel)]='inputItem'
+      >
+    </mat-form-field>
+    <button mat-raised-button (click)='onCreate()'>CREATE</button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class='todo-list'>
+  <mat-card-title>TODO LIST</mat-card-title>
   <mat-card-content>
     <mat-card class='margin-top-10' *ngFor='let item of todoList'>
       <mat-card-content class='todo-item'>
         <span class='text'>{{ item.text }}</span>
-        <button mat-button class='close' color='warn' (click)='onDelete(item._id)'>X</button>
+        <button class='close' color='warn' (click)='onDelete(item._id)'>X</button>
       </mat-card-content>
     </mat-card>  
   </mat-card-content>

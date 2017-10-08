@@ -1,21 +1,16 @@
-import { Component, OnInit, AfterContentInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterContentInit {
+export class AppComponent implements OnInit {
   
   private navLinks = [];
 
-  constructor(private auth: AuthService, private router: Router) { }
-
-  ngAfterContentInit(){
-    console.log('content init');
-  }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
     this.auth.authState.subscribe(

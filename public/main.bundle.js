@@ -45,7 +45,6 @@ module.exports = "<nav mat-tab-nav-bar>\n  <a mat-tab-link \n    *ngFor='let lin
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,16 +56,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var AppComponent = (function () {
-    function AppComponent(auth, router) {
+    function AppComponent(auth) {
         this.auth = auth;
-        this.router = router;
         this.navLinks = [];
     }
-    AppComponent.prototype.ngAfterContentInit = function () {
-        console.log('content init');
-    };
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.auth.authState.subscribe(function (isLoggedIn) {
@@ -90,10 +84,10 @@ AppComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object])
 ], AppComponent);
 
-var _a, _b;
+var _a;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -157,11 +151,11 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_13__app_routes__["a" /* routes */]),
             __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_http__["c" /* HttpModule */],
-            //StoreModule.forRoot(),
-            __WEBPACK_IMPORTED_MODULE_6__angular_material__["c" /* MatInputModule */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_material__["d" /* MatInputModule */],
             __WEBPACK_IMPORTED_MODULE_6__angular_material__["b" /* MatCardModule */],
             __WEBPACK_IMPORTED_MODULE_6__angular_material__["a" /* MatButtonModule */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_material__["d" /* MatTabsModule */]
+            __WEBPACK_IMPORTED_MODULE_6__angular_material__["e" /* MatTabsModule */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_material__["c" /* MatChipsModule */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_11__services_auth_service__["a" /* AuthService */],
@@ -542,7 +536,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/todo-list/todo-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class='form-block'>\n  <mat-card-title>TODO</mat-card-title>\n  <mat-card-content>\n    <mat-card class='margin-top-10' *ngFor='let item of todoList'>\n      <mat-card-content class='todo-item'>\n        <span class='text'>{{ item.text }}</span>\n        <button mat-button class='close' color='warn' (click)='onDelete(item._id)'>X</button>\n      </mat-card-content>\n    </mat-card>  \n  </mat-card-content>\n</mat-card> \n"
+module.exports = "<mat-card class=\"add-item-block\">\n  <mat-card-title>ADD TODO</mat-card-title>\n  <mat-card-content>\n    <mat-form-field>\n      <input matInput type='text' placeholder='Some text..' \n        [(ngModel)]='inputItem'\n      >\n    </mat-form-field>\n    <button mat-raised-button (click)='onCreate()'>CREATE</button>\n  </mat-card-content>\n</mat-card>\n\n<mat-card class='todo-list'>\n  <mat-card-title>TODO LIST</mat-card-title>\n  <mat-card-content>\n    <mat-card class='margin-top-10' *ngFor='let item of todoList'>\n      <mat-card-content class='todo-item'>\n        <span class='text'>{{ item.text }}</span>\n        <button class='close' color='warn' (click)='onDelete(item._id)'>X</button>\n      </mat-card-content>\n    </mat-card>  \n  </mat-card-content>\n</mat-card> \n"
 
 /***/ }),
 
@@ -581,11 +575,12 @@ var TodoListComponent = (function () {
             _this.todoList = data;
         });
     };
-    TodoListComponent.prototype.onCreate = function (text) {
+    TodoListComponent.prototype.onCreate = function () {
         var _this = this;
-        this.todo.addItem(text).subscribe(function (data) {
-            _this.todoList = data;
-        });
+        if (this.inputItem)
+            this.todo.addItem(this.inputItem).subscribe(function (data) {
+                _this.todoList = data;
+            });
     };
     return TodoListComponent;
 }());

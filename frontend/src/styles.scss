@@ -46,6 +46,18 @@ span.text {
 }
 
 button.close {
-  width: 50px;
+  width: 30px;
   float: right;
+}
+
+.todo-list {
+  @extend .form-block;
+  margin: 10px auto;
+  width: 400px;
+}
+
+.add-item-block {
+  @extend .form-block;
+  margin: 50px auto;
+  width: 400px;
 }

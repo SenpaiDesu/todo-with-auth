@@ -9,6 +9,7 @@ import { TodoService } from '../services/todo.service';
 export class TodoListComponent implements OnInit {
 
   private todoList = [];
+  private inputItem: string;
   
   constructor(private todo: TodoService) { }
 
@@ -28,12 +29,13 @@ export class TodoListComponent implements OnInit {
     )
   }
 
-  onCreate(text: string): void {
-    this.todo.addItem(text).subscribe(
-      data => {
-        this.todoList = data;
-      }
-    )
+  onCreate(): void {
+    if (this.inputItem)
+      this.todo.addItem(this.inputItem).subscribe(
+        data => {
+          this.todoList = data;
+        }
+      )
   }
 
 }

@@ -9,7 +9,8 @@ import {
   MatCardModule,
   MatInputModule,
   MatButtonModule,
-  MatTabsModule
+  MatTabsModule,
+  MatChipsModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -35,11 +36,11 @@ import { routes } from './app.routes';
     RouterModule.forRoot(routes),
     FormsModule,
     HttpModule,
-    //StoreModule.forRoot(),
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatChipsModule
   ],
   providers: [
     AuthService,
