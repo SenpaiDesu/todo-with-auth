@@ -1,3 +1,26 @@
-<p>
-  sign-up works!
-</p>
+<mat-card class='form-block'>
+  <mat-card-title>REGISTER</mat-card-title>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput type='text' placeholder='Username..' color='accent'
+        [(ngModel)]='credentials.username'
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type='email' placeholder='Email..' color='accent'
+      [(ngModel)]='credentials.email'
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type='password' placeholder='Password..' color='accent'
+      [(ngModel)]='credentials.password'
+      >
+    </mat-form-field>
+    <button mat-raised-button color='accent'
+      (click)='onRegister()'
+    >
+      REGISTER
+    </button>
+    
+  </mat-card-content>
+</mat-card>

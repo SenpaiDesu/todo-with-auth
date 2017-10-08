@@ -1,21 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
-//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import "~@angular/material/theming";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+/*@import "~@angular/material/theming";
 @include mat-core();
 
 $senpai-theme-primary: mat-palette($mat-purple);
 $senpai-theme-accent: mat-palette($mat-orange);
 $senpai-theme-warn: mat-palette($mat-red);
 
-$senpai-theme: mat-light-theme(
+$senpai-theme: mat-theme(
   $senpai-theme-primary,
   $senpai-theme-accent,
   $senpai-theme-warn
 );
 
 @include angular-material-theme($senpai-theme);
-
+*/
 * {
   margin: 0;
   padding: 0;
@@ -23,14 +23,11 @@ $senpai-theme: mat-light-theme(
   outline: 0;
 }
 
+a { text-decoration: none; }
+
 body {
   //background-color: #000 !important;
   font-size: 15px;
-}
-
-.wrapper {
-  width: 100%;
-  height: 100%;
 }
 
 .form-block {
@@ -38,4 +35,17 @@ body {
   flex-direction: column;
   width: 300px;
   margin: 200px auto;
+}
+
+button, .mat-form-field{
+  width: 100%;
+}
+
+span.text {
+  float: left;
+}
+
+button.close {
+  width: 50px;
+  float: right;
 }

@@ -1,14 +1,23 @@
-<div class="wrapper">
-  <mat-card class='form-block'>
-    <mat-card-title>LOG IN</mat-card-title>
-    <mat-card-content>
-      <mat-form-field>
-        <input matInput placeholder='Email..'>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder='Password..'>
-      </mat-form-field>
-    </mat-card-content>
-  </mat-card>
+<mat-card class='form-block'>
+  <mat-card-title>LOG IN</mat-card-title>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput type='email' placeholder='Email..'
+        [(ngModel)]='credentials.email'
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type='password' placeholder='Password..'
+        [(ngModel)]='credentials.password'
+      >
+    </mat-form-field>
+    <button mat-raised-button color='primary'
+      (click)='onLoginWithEmailAndPassword()'
+    >
+      LOG IN
+    </button>
+    
+  </mat-card-content>
+</mat-card>
   
-</div>
+

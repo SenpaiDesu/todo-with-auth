@@ -2,9 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+//import { StoreModule } from '@ngrx/store';
 import { 
   MatCardModule,
-  MatInputModule 
+  MatInputModule,
+  MatButtonModule,
+  MatTabsModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -28,8 +33,13 @@ import { routes } from './app.routes';
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    FormsModule,
+    HttpModule,
+    //StoreModule.forRoot(),
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatTabsModule
   ],
   providers: [
     AuthService,
@@ -37,4 +47,6 @@ import { routes } from './app.routes';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

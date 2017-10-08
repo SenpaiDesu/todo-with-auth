@@ -31,7 +31,7 @@ export class TodoService {
 
   deleteItem(id): Observable<any> {
     let headers = this.attachToken();
-    return this.http.delete(`${this.deleteItem}/todos/${id}`, { headers })
+    return this.http.delete(`${this.baseUrl}/todos/${id}`, { headers })
       .map(res => res.json());
   } 
 
